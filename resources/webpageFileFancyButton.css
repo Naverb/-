@@ -41,14 +41,37 @@ body {
     font-size: 20px;
 }
 
-#buzz_paragraph {
-    margin: auto;
-    width: 50%;
+.float_top {
+    border: 1px solid red;
+    vertical-align: top;
 }
 
-#hours {
-    margin-top: -15px;
+.float_right {
+    border: 1px solid yellow;
+    float: right;
 }
+
+.float_bottom {
+    border: 1px solid green;
+    vertical-align: bottom;
+}
+
+.float_left {
+    border: 1px solid blue;
+    float: left;
+}
+
+.float_middle {
+    border: 1px solid magenta;
+    vertical-align: middle;
+}
+
+.float_center {
+    border: 1px solid orange;
+    align-self: center;
+}
+
+.animated_link {}
 
 #titlebar {
     border: 1px solid grey;
@@ -68,20 +91,29 @@ body {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    margin-top: 70px;
 }
 
 #introduction {
+    margin-top: 10%;
     border: 2px solid black;
-    text-align: center;
+    width: 75%;
+    text-align: left;
     display: flex;
     flex-direction: column;
-    background-image: url("https://i.pinimg.com/originals/d7/5b/90/d75b9033305a4ccd096d923572bf77da.jpg");
-    color: azure;
-    width: 100%;
-    /*border-radius: 30px;
-	width: 75%;*/
 }
+
+#company_info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#company_info>p {
+    border: 1px dashed red;
+    margin-top: 1%;
+}
+
+#company_bio {}
 
 #company_hours {
     margin-right: 0;
@@ -97,22 +129,6 @@ body {
     border-radius: 25px;
 }
 
-.bio {
-    margin: 10px 15px;
-    margin-top: 5px;
-    color: #E1E1E1;
-    text-align: center;
-    font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
-}
-
-.bio>p {
-    margin-top: -3px
-}
-
-.picture {
-    display: inline-block;
-}
-
 .team:hover {
     background-color: #ddd;
     color: black;
@@ -125,6 +141,7 @@ body {
 }
 
 .team_subcontainer {
+    border: 1px dashed red;
     height: auto;
     overflow: auto;
 }
@@ -135,14 +152,11 @@ body {
     overflow: auto;
     margin: 20px 40px;
     border-radius: 25px;
-    width: calc(39vw + 20px);
 }
 
 .topnav {
     overflow: hidden;
     float: center;
-    border-radius: 30px;
-    background-color: rgb(75, 75, 75, 0.1);
 }
 
 @media screen and (max-width: 800px) {
@@ -152,9 +166,6 @@ body {
     .team {
         width: 75vw;
         height: 50vw;
-    }
-    .padding_box {
-        width: calc(75vw + 20px);
     }
 }
 
@@ -169,17 +180,12 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: nowrap;
 }
 
 #logo {
     /*float: left;*/
     margin: 5px;
     padding-left: 10px;
-    height: 60px;
-    width: 250px;
-    margin-bottom: 0px;
-    padding-top: 5px;
 }
 
 #logo:hover {
@@ -190,7 +196,6 @@ body {
     font-family: "Snell Roundhand";
     color: #FFF;
     font-size: 30px;
-    text-align: center;
 }
 
 #nav_right {
@@ -219,9 +224,6 @@ body {
     height: 18px;
     padding: 10px;
     margin: 5px;
-    white-space: normal;
-    width: 91px;
-    /* Perfectly sized for "Contact Us" text in correct font - type of font could break this*/
 }
 
 .contact_button:active {
@@ -243,115 +245,58 @@ body {
 }
 
 .social_media_set {
+    position: relative;
+    font-size: 35px;
+    text-align: center;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    font-size: 20px;
     font-family: "SSSocial";
     font-size: 20px;
 }
 
-
-/* Style all font awesome icons */
-
-.fa {
-    padding: 10px;
+.social_media_ico {
+    width: 40px;
+    height: 40px;
     margin: 5px;
-    width: 20px;
-    height: 20px;
-    text-align: center;
+}
+
+article {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
     background-color: #333;
     box-shadow: 0 0 6px -2px #000;
-    font-family: "SSSocial";
-    border-radius: 5px;
+    line-height: 45px;
+    transform: perspective(150px) rotateY(0deg);
+    transition: transform 0.4s linear, background-color 0s linear 0.2s, color 0s linear 0.2s;
 }
 
-.fa-facebook:hover {
+.social_media_ico:hover article {
+    transform: perspective(150px) rotateY(180deg);
+    color: #eee;
+    transition: transform 0.2s linear, background-color 0s linear 0.1s, color 0s linear 0.1s;
+}
+
+.social_media_ico:nth-child(1):hover article {
     background-color: #3B5998;
 }
 
-.fa-twitter:hover {
-    background-color: rgb(0, 155, 211);
+.social_media_ico:nth-child(2):hover article {
+    background-color: #00ACED;
 }
 
-.fa-linkedin:hover {
+.social_media_ico:nth-child(3):hover article {
     background-color: #225982;
 }
 
-.overflow_text {
-    display: inline;
+.social_media_span {
+    transition: transform 0s linear 0.2s, text-shadow 0s linear 0.2s;
+    display: block;
 }
 
-#useless_pizazz {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    flex-wrap: wrap;
-}
-
-.hype_box {
-    background-color: rgba(255, 255, 255, 0);
-    text-align: center;
-    width: 330px;
-    padding: 20px 10px;
-    float: left;
-    color: #3e3e3e;
-}
-
-@media screen and (max-height: 700px) {
-    #navbar {
-        position: absolute;
-    }
-}
-
-@media screen and (max-width: 1500px) {
-    .hype_box {
-        float: none;
-    }
-    #useless_pizazz {
-        justify-content: space-evenly;
-    }
-}
-
-@media screen and (max-width: 800px) {
-    #nav_middle {
-        display: none;
-    }
-    #buzz_paragraph {
-        width: 75%;
-    }
-}
-
-@media screen and (max-width: 610px) {
-    .social_media_set {
-        display: none;
-    }
-    #nav_right {
-        flex-grow: 0.20;
-        /* This looks decent enough */
-    }
-    #navbar {
-        justify-content: space-around;
-    }
-}
-
-@media screen and (max-width: 430px) {
-    #nav_right {
-        display: none;
-    }
-    #navbar {
-        justify-content: center;
-    }
-}
-
-.hype_box:hover {
-    color: #727272;
-}
-
-.content-box-heading {
-    font-size: 22px;
-}
-
-.hype_description {
-    margin: -5px 0px;
+.social_media_ico:hover .social_media_span {
+    transition: transform 0s linear 0.1s, text-shadow 0s linear 0.1s;
+    transform: scale(-1, 1);
+    text-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
 }
